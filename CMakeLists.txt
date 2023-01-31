@@ -75,29 +75,35 @@ target_include_directories(lisa PUBLIC
 	src/lib/libdc42/include
 	)
 
-set(LIB_DC42_SOURCES
-	src/lib/libdc42/src/libdc42.c)
-add_library(dc42 ${LIB_DC42_SOURCES})
-target_include_directories(dc42 PUBLIC
-	src/include
-	src/lib/libdc42/include)
-
-
+add_subdirectory(src/lib/libdc42)
 
 find_package(SDL2 REQUIRED)
 
-
-add_executable(LisaSdlTool 
+add_executable(LisaSdlTool "")
+target_sources(LisaSdlTool 
+	PRIVATE
 	./src/LisaSdlTool/main.cpp
 	./src/LisaSdlTool/LisaEmulator.cpp
 	./src/LisaSdlTool/LisaUISDL.cpp
 	./src/LisaSdlTool/LisaSDLKeycodes.cpp
 	./src/LisaSdlTool/LisaEmulatorCallbacks.cpp
+	./src/LisaSdlTool/LisaEmulator.h
+	./src/LisaSdlTool/LisaUISDL.h
+	./src/LisaSdlTool/LisaSDLKeycodes.h
+	./src/LisaSdlTool/LisaEmulatorCallbacks.h
 	)
+
 target_include_directories(LisaSdlTool PUBLIC
 	src/include 
 	src/lib/libGenerator/include
 	src/lib/libdc42/include
 	${SDL2_INCLUDE_DIRS})
 target_link_libraries(LisaSdlTool ${SDL2_LIBRARIES} lisa Generator dc42)
-
+if(NOT EMSCRIPTEN)
+add_custom_command(
+	TARGET LisaSdlTool POST_BUILD
+	COMMAND ${CMAKE_COMMAND} -E copy
+	${CMAKE_SOURCE_DIR}/boot.ROM
+	${CMAKE_SOURCE_DIR}/LisaOfficeHardDisk.dc42
+	$<TARGET_FILE_DIR:LisaSdlTool>)
+endif()

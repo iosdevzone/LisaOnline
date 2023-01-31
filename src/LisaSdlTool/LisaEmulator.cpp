@@ -109,7 +109,7 @@ void LisaEmulator::Initialize()
     
     fprintf(stderr, "romless: %d\n", romless);
     
-    char *diskImagePath = "LisaOfficeHardDisk.dc42";
+    const char *diskImagePath = "LisaOfficeHardDisk.dc42";
     
     int viaIndex = 2;
     if (!via[viaIndex].ProFile)

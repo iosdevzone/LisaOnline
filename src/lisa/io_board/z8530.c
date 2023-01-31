@@ -1311,7 +1311,7 @@ uint8 lisa_rb_Oxd200_sccz8530(uint32 address)
                       c=scc_fn[port].read_serial_port(port);  // if nothing already waiting in fliflo, call read fn as needed.
                     }
              ALERT_LOG(0,"read char %02x %c from fifo or fn port:%d fliflo size is:%d pc:%08x",
-                    c,(c > 31 ? c:'.'),
+                       c,((c > 31 && c < 0x7e) ? c:'.'),
                     port,fliflo_buff_size(&SCC_READ[port]),pc24);
 
              return c;

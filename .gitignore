@@ -1,4 +1,5 @@
-emscripten-build/
+build/
+*-build/
 Makefile
 cmake_install.cmake
 *.a

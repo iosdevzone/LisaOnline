@@ -71,6 +71,7 @@ void StartEmscriptenMainLoop()
 
 int main(int argc, const char* argv[])
 {
+    
 #ifdef __EMSCRIPTEN__
     StartEmscriptenMainLoop();
 #else

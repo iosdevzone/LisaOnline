@@ -1,0 +1,7 @@
+emscripten-build/
+Makefile
+cmake_install.cmake
+*.a
+CMakeFiles/
+CMakeCache.txt
+LisaSdlTool

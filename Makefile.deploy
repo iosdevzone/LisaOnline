@@ -1,0 +1,14 @@
+
+all: docs/LisaOffice/LisaSdlTool.data \
+     docs/LisaOffice/LisaSdlTool.js \
+     docs/LisaOffice/LisaSdlTool.wasm \
+     docs/LisaOffice/LisaSdlTool.html
+
+docs/LisaOffice/LisaSdlTool.data: emscripten-build/LisaSdlTool.data
+	cp $< $@
+docs/LisaOffice/LisaSdlTool.js: emscripten-build/LisaSdlTool.js
+	cp $< $@
+docs/LisaOffice/LisaSdlTool.wasm: emscripten-build/LisaSdlTool.wasm
+	cp $< $@
+docs/LisaOffice/LisaSdlTool.html: emscripten-build/LisaSdlTool.html
+	cp $< $@

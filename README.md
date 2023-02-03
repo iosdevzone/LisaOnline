@@ -1,5 +1,5 @@
 # LisaOnline
-[LisaOnline](https://iosdevzone.github.io/LisaOnline/LisaOffice/LisaSdlTool.html) that runs a browser.
+[LisaOnline](https://iosdevzone.github.io/LisaOnline/LisaOffice/LisaSdlTool.html) is an Apple Lisa emualtor that runs a browser.
 
 This is a port of [Ray Arachelian's LisaEm](https://github.com/rayarachelian/lisaem) that can run in a browser.
 
